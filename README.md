@@ -1,5 +1,8 @@
 # Herald for Amplitude
 
+[![Swift versions](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FMkhytarMkhoian%2Fherald-ios-amplitude%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/MkhytarMkhoian/herald-ios-amplitude)
+[![Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FMkhytarMkhoian%2Fherald-ios-amplitude%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/MkhytarMkhoian/herald-ios-amplitude)
+
 Sends [Herald](https://github.com/MkhytarMkhoian/herald-ios) events, user properties and revenue to
 Amplitude, over [`Amplitude-Swift`](https://github.com/amplitude/Amplitude-Swift).
 

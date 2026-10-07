@@ -9,7 +9,7 @@ let package = Package(
         .library(name: "HeraldAmplitude", targets: ["HeraldAmplitude"])
     ],
     dependencies: [
-        .package(path: "../herald-ios"),
+        .package(url: "https://github.com/MkhytarMkhoian/herald-ios", from: "1.0.0-beta.1"),
         .package(url: "https://github.com/amplitude/Amplitude-Swift", from: "1.12.0"),
     ],
     targets: [

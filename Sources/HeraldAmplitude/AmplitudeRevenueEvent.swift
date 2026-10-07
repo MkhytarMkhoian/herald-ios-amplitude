@@ -65,7 +65,7 @@ public struct AmplitudeRevenueEvent: Event, Equatable {
         amplitudeRevenue.revenue = revenue
         amplitudeRevenue.receipt = receipt
         amplitudeRevenue.receiptSig = receiptSig
-        amplitudeRevenue.properties = amplitudeProperties(parameters)
+        amplitudeRevenue.properties = parameters.toAmplitudeProperties()
         return amplitudeRevenue
     }
 }

@@ -15,6 +15,6 @@ public struct GenericAmplitudeEventTracker: AmplitudeEventTracker {
     }
 
     public func track() {
-        sdk.track(eventType: event.name, eventProperties: amplitudeProperties(event.parameters))
+        sdk.track(eventType: event.name, eventProperties: event.parameters.toAmplitudeProperties())
     }
 }

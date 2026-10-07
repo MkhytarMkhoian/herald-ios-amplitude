@@ -23,7 +23,7 @@ public struct ScreenViewAmplitudeEventTracker: AmplitudeEventTracker {
     }
 
     public func track() throws {
-        var properties = amplitudeProperties(event.parameters)
+        var properties = event.parameters.toAmplitudeProperties()
         if properties["[Amplitude] Screen Name"] != nil {
             throw AmplitudeRefusal(
                 description: "Screen view '\(event.name)' can't have an '[Amplitude] Screen Name' "

@@ -14,12 +14,16 @@ func amplitudeValue(_ value: AnalyticsValue) -> Any {
     }
 }
 
-func amplitudeProperties(_ parameters: [String: AnalyticsValue]) -> [String: Any] {
-    var properties: [String: Any] = [:]
-    for (key, value) in parameters {
-        properties[key] = amplitudeValue(value)
+extension [String: AnalyticsValue] {
+    /// The parameters as Amplitude takes them, each value as its own type. For a tracker of your
+    /// own: `amplitude.track(eventType: "refund", eventProperties: ...)`.
+    public func toAmplitudeProperties() -> [String: Any] {
+        var properties: [String: Any] = [:]
+        for (key, value) in self {
+            properties[key] = amplitudeValue(value)
+        }
+        return properties
     }
-    return properties
 }
 
 /// Why this module refused an event: it says what to change.

@@ -1,0 +1,28 @@
+# Checks every push and pull request: formatting, and the tests on macOS and in the iOS Simulator.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Formatting
+        run: swift format lint --strict -r Sources Tests Package.swift
+
+      - name: Tests on macOS
+        run: swift test
+
+      - name: Tests in the iOS Simulator
+        run: |
+          device=$(scripts/simulator.sh)
+          xcodebuild test -scheme herald-ios-amplitude -destination "id=$device" -quiet

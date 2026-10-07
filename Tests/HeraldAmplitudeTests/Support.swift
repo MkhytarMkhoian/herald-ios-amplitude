@@ -33,7 +33,7 @@ final class RecordingAmplitudeSDK: AmplitudeSDK, @unchecked Sendable {
     }
 
     func track(eventType: String, eventProperties: [String: Any]) {
-        record("track \(eventType)\(describe(eventProperties))")
+        record("track \(eventType)\(formattedValues(eventProperties))")
     }
 
     func setUserProperty(_ property: String, value: Any) {
@@ -45,7 +45,7 @@ final class RecordingAmplitudeSDK: AmplitudeSDK, @unchecked Sendable {
         line += " productId=\(text(revenue.productId)) revenueType=\(text(revenue.revenueType))"
         line += " currency=\(text(revenue.currency)) revenue=\(text(revenue.revenue))"
         line += " receipt=\(text(revenue.receipt)) receiptSig=\(text(revenue.receiptSig))"
-        line += " insertId=\(text(insertId))\(describe(revenue.properties ?? [:]))"
+        line += " insertId=\(text(insertId))\(formattedValues(revenue.properties ?? [:]))"
         record(line)
     }
 
@@ -65,7 +65,7 @@ final class RecordingAmplitudeSDK: AmplitudeSDK, @unchecked Sendable {
         return "nil"
     }
 
-    private func describe(_ properties: [String: Any]) -> String {
+    private func formattedValues(_ properties: [String: Any]) -> String {
         var text = ""
         for key in properties.keys.sorted() {
             let value = properties[key]!
